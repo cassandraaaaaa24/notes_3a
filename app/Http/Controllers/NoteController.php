@@ -14,6 +14,7 @@ class NoteController extends Controller
         $notes = [
         ['title' => 'First Note', 'content' => 'This is my first note'],
         ['title' => 'Second Note', 'content' => 'Laravel is awesome!'],
+        ['title' => 'Ang herap', 'content' => 'Laravel is mahirap!'],
         ];
 
         return view('notes.index', ['notes' => $notes]);
