@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Note;
 
 class NoteController extends Controller
 {
@@ -11,11 +12,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = [
-        ['title' => 'First Note', 'content' => 'This is my first note'],
-        ['title' => 'Second Note', 'content' => 'Laravel is awesome!'],
-        ['title' => 'Ang herap', 'content' => 'Laravel is mahirap!'],
-        ];
+        $notes = Note::latest()->get();
 
         return view('notes.index', ['notes' => $notes]);
     }
