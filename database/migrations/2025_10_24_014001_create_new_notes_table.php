@@ -16,14 +16,13 @@ return new class extends Migration
             $table->text('title');
             $table->text('content');
             $table->timestamps('created_at');
-            $table->timestamps('updated_at');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down(): void    
     {
         Schema::dropIfExists('notes');
     }
