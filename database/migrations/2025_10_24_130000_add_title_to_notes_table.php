@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('notes', function (Blueprint $table) {
             if (!Schema::hasColumn('notes', 'title')) {
-                $table->string('title')->nullable();
+                $table->string('title')->nullable()->after('id');
             }
         });
     }
@@ -25,6 +25,7 @@ return new class extends Migration
     {
         Schema::table('notes', function (Blueprint $table) {
             if (Schema::hasColumn('notes', 'title')) {
+                // Note: dropping columns on SQLite may require the doctrine/dbal package.
                 $table->dropColumn('title');
             }
         });
