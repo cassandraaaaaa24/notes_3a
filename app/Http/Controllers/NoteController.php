@@ -30,7 +30,14 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'nullable|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        Note::create($validated);
+
+        return redirect('/notes')->with('status', 'Note created.');
     }
 
     /**
