@@ -27,9 +27,9 @@
 
     @foreach($notes as $note)
         <x-note-card
-            :title="$note->title"
-            :content="$note->content"
-            :timestamp="$note->created_at->diffForHumans()"
+            :title="$note['title']"
+            :content="$note['content']"
+            timestamp="Just now"
         />
     @endforeach
 </x-layout>
