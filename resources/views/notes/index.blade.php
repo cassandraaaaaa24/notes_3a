@@ -1,4 +1,5 @@
 <x-layout>
+
     <x-slot:title>All Notes</x-slot:title>
 
     <h1>My Notes</h1>
@@ -26,10 +27,12 @@
     </form>
 
     @foreach($notes as $note)
+    <div style="border: 1px solid #ccc; padding: 10px; margin-top: 10px; width: 300px; float: left; margin-right: 10px;">
         <x-note-card
             :title="$note['title']"
             :content="$note['content']"
-            timestamp="Just now"
+            :timestamp="$note['created_at']"
         />
+    </div>
     @endforeach
 </x-layout>
